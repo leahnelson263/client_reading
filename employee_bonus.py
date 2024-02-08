@@ -24,5 +24,4 @@ for rec in csv_file:
     print(f"Bonus:   $   {bonus:,.2f}")
     print(f"Pay:     $  {pay:,.2f}")
     print()
-    print()
     input()
