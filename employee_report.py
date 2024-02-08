@@ -30,7 +30,6 @@ def display_high_efficiency():
         name = rec[1]
         hours_worked = float(rec[4])
         productivity = float(rec[5])
-        age = rec[3]
 
         #calculate efficiency = productivity/hrs worked
         efficiency = float(productivity / hours_worked)
@@ -47,7 +46,6 @@ def display_low_efficiency():
         name = rec[1]
         hours_worked = float(rec[4])
         productivity = float(rec[5])
-        age = rec[3]
 
         #calculate efficiency = productivity/hrs worked
         efficiency = float(productivity / hours_worked)
@@ -64,7 +62,7 @@ def display_40s():
         name = rec[1]
         hours_worked = float(rec[4])
         productivity = float(rec[5])
-        age = rec[3]
+        age = rec[2]
 
         if age == range(40,50,1):
             print(name)
@@ -81,7 +79,7 @@ def display_30s():
         name = rec[1]
         hours_worked = float(rec[4])
         productivity = float(rec[5])
-        age = rec[3]
+        age = rec[2]
 
         if age == range(30,40,1):
             print(name)
@@ -97,7 +95,7 @@ def display_20s():
         name = rec[1]
         hours_worked = float(rec[4])
         productivity = float(rec[5])
-        age = rec[3]
+        age = rec[2]
 
         if age == range(20,30,1):
             print(name)
