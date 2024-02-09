@@ -6,102 +6,80 @@ csv_file = csv.reader(infile)
 
 next(csv_file)
 
-
-efficiency_level = ''
-age_range = ''
-
-def main():
-    display_high_efficiency()
-    print()
-    display_low_efficiency()
-    print()
-    display_40s()
-    print()
-    display_30s()
-    print()
-    display_20s()
-    print()
-
-#FUNCTION 1: EFFICIENCY - HIGH
-def display_high_efficiency():
-    print('Highly Efficient Individuals:')
-
-    for rec in csv_file:
-        name = rec[1]
-        hours_worked = float(rec[4])
-        productivity = float(rec[5])
-
-        #calculate efficiency = productivity/hrs worked
-        efficiency = float(productivity / hours_worked)
-
-        if efficiency > 2:
-            print(name)
+#pre initializing lists
+high_efficiency = []
+low_efficiency = []
+employee_40 = []
+employee_30 = []
+employee_20 = []
+count_40 = 0
+count_30 = 0
+count_20 = 0
 
 
-#FUNCTION 2: EFFICIENCY - LOW
-def display_low_efficiency():
-    print('Low Efficient Individuals:')
+for rec in csv_file:
+    name = rec[1]
+    hours_worked = float(rec[4])
+    productivity = float(rec[5])
+    age = int(rec[2])
+        
+    #calculate efficiency = productivity/hrs worked
+    efficiency = float(productivity / hours_worked)
 
-    for rec in csv_file:
-        name = rec[1]
-        hours_worked = float(rec[4])
-        productivity = float(rec[5])
+    if efficiency > 2:
+        high_efficiency.append(name)
+    elif efficiency < 1:
+        low_efficiency.append(name)
 
-        #calculate efficiency = productivity/hrs worked
-        efficiency = float(productivity / hours_worked)
+    if age >= 40:
+        employee_40.append(name)
+        count_40 += 1
+    elif age >= 30:
+        employee_30.append(name)
+        count_30 += 1
+    else:
+        employee_20.append(name)
+        count_20 += 1
+    
 
-        if efficiency < 1:
-            print(name)
-
-
-#FUNCTION 3: AGE - 40s 
-def display_40s():
-    print('Employees in their 40s')
-    count = 0
-    for rec in csv_file:
-        name = rec[1]
-        hours_worked = float(rec[4])
-        productivity = float(rec[5])
-        age = rec[2]
-
-        if age == range(40,50,1):
-            print(name)
-
-
-    print('Total number of employees in their 40s: ')
-
-
-#FUNCTION 4: AGE - 30s 
-def display_30s():
-    print('Employees in their 30s')
-
-    for rec in csv_file:
-        name = rec[1]
-        hours_worked = float(rec[4])
-        productivity = float(rec[5])
-        age = rec[2]
-
-        if age == range(30,40,1):
-            print(name)
-
-    print('Total number of employees in their 30s: ')
+#print the results
+    
+print('Highly Efficient Individuals:')
+for name in high_efficiency:
+    print(name)
+print('\n\n')
 
 
-#FUNCTION 5: AGE - 20s 
-def display_20s():
-    print('Employees in their 20s')
+print('Low Efficient Individuals:')
+for name in low_efficiency:
+    print(name)
+print('\n\n')
 
-    for rec in csv_file:
-        name = rec[1]
-        hours_worked = float(rec[4])
-        productivity = float(rec[5])
-        age = rec[2]
 
-        if age == range(20,30,1):
-            print(name)
+print('Employees in their 40s')
+for name in employee_40:
+    print(name)
+print()
+print(f"Total number of employees in their 40s: {count_40}")
+print('\n\n')
 
-    print('Total number of employees in their 20s: ')
+
+print('Employees in their 30s')
+for name in employee_30:
+    print(name)
+print()
+print(f"Total number of employees in their 30s: {count_30}")
+print('\n\n')
 
 
 
-main()
+print('Employees in their 20s')
+for name in employee_20:
+    print(name)
+print()
+print(f"Total number of employees in their 20s: {count_20}")
+print('\n\n')
+
+
+
+
